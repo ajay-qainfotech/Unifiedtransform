@@ -43,7 +43,10 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
-
+        'lead.create'         => [\App\Http\Middleware\Lead\CanLeadCreate::class],
+        'lead.assigned'       => [\App\Http\Middleware\Lead\IsLeadAssigned::class],
+        'lead.update.status'  => [\App\Http\Middleware\Lead\CanLeadUpdateStatus::class],
+        
         'api' => [
             'throttle:60,1',
             'bindings',

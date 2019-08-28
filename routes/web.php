@@ -41,6 +41,21 @@ Route::middleware(['auth'])->group(function (){
   Route::post('attendance/take-attendance','AttendanceController@store')->middleware(['teacher']);
   Route::get('attendance/adjust/{student_id}','AttendanceController@adjust')->middleware(['teacher']);
   Route::post('attendance/adjust','AttendanceController@adjustPost')->middleware(['teacher']);
+
+
+      /*
+     * Leads
+     */
+    Route::group(['prefix' => 'leads'], function () {
+      Route::get('/data', 'LeadsController@anyData')->name('leads.data');
+      Route::get('/my', 'LeadsController@my')->name('leads.my');
+      Route::get('/mydata', 'LeadsController@myData')->name('leads.mydata');
+      Route::patch('/updateassign/{id}', 'LeadsController@updateAssign');
+      Route::patch('/updatestatus/{id}', 'LeadsController@updateStatus');
+      Route::patch('/updatefollowup/{id}', 'LeadsController@updateFollowup')->name('leads.followup');
+  });
+  Route::resource('leads', 'LeadsController');
+  Route::post('/comments/{type}/{id}', 'CommentController@store');
 });
 
 Route::middleware(['auth','teacher'])->prefix('grades')->group(function (){

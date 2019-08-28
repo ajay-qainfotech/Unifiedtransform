@@ -105,6 +105,23 @@
     <a class="nav-link" href="{{ route('settings.index') }}"><i class="material-icons">settings</i> <span class="nav-link-text">@lang('Academic Settings')</span></a>
   </li>
   <li class="nav-item dropdown">
+    <a class="nav-link" href="#"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="material-icons">settings</i> 
+      <span class="nav-link-text">@lang('Leads')</span>
+      <i class="material-icons pull-right">keyboard_arrow_down</i>
+    </a>
+    <ul class="dropdown-menu" style="width: 100%;">
+      <!-- Dropdown menu links -->
+      <li>
+        <a class="dropdown-item" href="{{ route('leads.index') }}"><i class="material-icons">developer_board</i> <span
+            class="nav-link-text">@lang('All Leads')</span></a>
+      </li>
+      <li>
+        <a class="dropdown-item" href="{{ route('leads.create') }}"><i class="material-icons">note_add</i> <span class="nav-link-text">@lang('Add New Lead')</span></a>
+      </li>
+    </ul>
+  </li>
+  <li class="nav-item dropdown">
     <a role="button" href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
         class="material-icons">chrome_reader_mode</i> <span class="nav-link-text">@lang('Manage GPA')</span> <i class="material-icons pull-right">keyboard_arrow_down</i></a>
     <ul class="dropdown-menu" style="width: 100%;">
